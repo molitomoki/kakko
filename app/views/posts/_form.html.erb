@@ -1,0 +1,20 @@
+<%= form_with model: post, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "サイトの名称" %><br />
+    <%= f.text_field :title, id:"post_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url, "URL" %><br />
+    <%= f.text_field :url, id:"post_url" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "サイトの画像" %><br />
+    <%= f.file_field :image, id:"post_image" %>
+  </div>
+
+  <div class="actions"><br />
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
