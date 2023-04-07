@@ -1,7 +1,13 @@
 class ReviewsController < ApplicationController
   def create
-    Review.create(review_params)
-    redirect_to "/posts/#{review.post.id}"
+    @review = Review.new(review_params)
+    if @review.save
+      redirect_to post_path(@review.post)
+    else
+      @post = @review.post
+      @reviews = @post.reviews
+      render "posts/show"
+    end
   end
 
   private
