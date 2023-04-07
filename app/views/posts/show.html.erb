@@ -56,12 +56,24 @@
           <% end %>
         <% end %>
         <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+          
+          <h4>＜評価一覧＞</h4>
+          <% @reviews.each do |review| %>
             <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>：</strong>
+               <%= "総合評価 : #{review.total}" %><br />
+               <%= "世界観 : #{review.concept}" %>
+               <%= "見栄え : #{review.quality}" %>
+               <%= "わかりやすさ : #{review.usability}" %>
+               <%= "実用的 : #{review.utility}" %><br />
+
+               <% unless review.text == "" %>
+                <%= "コメント : #{review.text}" %>
+               <% end %>
+
             </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+          <% end %>
+          
         </ul>
       </div>
     </div>

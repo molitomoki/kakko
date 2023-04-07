@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @review = Review.new
+    @reviews = @post.reviews.includes(:user)
   end
 
   def edit
