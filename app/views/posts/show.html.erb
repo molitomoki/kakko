@@ -24,24 +24,101 @@
         
       </div>
       <div class="prototype__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with model: モデル名,local: true do |f|%>
+        <% if user_signed_in? %>
+          <%= form_with model: [@post, @review],local: true do |f|%>
             <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge, id:"comment_content" %>
+              <%= f.label :total, "総合評価" %><br />
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
+            </div>
+            <div class="field">
+              <%= f.label :concept, "世界観" %><br />
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
+            </div>
+            <div class="field">
+              <%= f.label :quality, "見栄え" %><br />
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
+            </div>
+            <div class="field">
+              <%= f.label :usability, "わかりやすさ" %><br />
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
+            </div>
+            <div class="field">
+              <%= f.label :utility, "実用的" %><br />
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
+            </div>
+            <div class="field">
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_area :text, id:"comment_content" %>
             </div>
             <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
+              <%= f.submit "送信する", class: :form__btn  %>
             </div>
-          <%# <% end %>
-        <%# // ログインしているユーザーには上記を表示する %>
+          <% end %>
+        <% end %>
+
+        
         <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-            <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
-            </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+          <h4>＜評価一覧＞</h4>
+          <% @reviews.each do |review| %>
+            <ul class="comments_list">
+            <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>
+               <%= "総合評価 : #{review.total}点" %></strong><br />
+               <%= "世界観 : #{review.concept}点" %>
+               <%= "見栄え : #{review.quality}点" %>
+               <%= "わかりやすさ : #{review.usability}点" %>
+               <%= "実用的 : #{review.utility}点" %><br />
+
+               <% unless review.text == "" %>
+                <%= "コメント : #{review.text}" %>
+               <% end %>
+            </ul>
+          <% end %>
+        
         </ul>
       </div>
     </div>
