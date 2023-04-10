@@ -214,6 +214,29 @@ a {
   background: #999;
 }
 
+.review__manage{
+  display: flex;
+  justify-content: left;
+  padding-bottom: 5px;
+}
+.review__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 0.4em;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+}
+.review__btn:hover{
+  color: #fff;
+  background: #999;
+}
+
+
 .prototype__comments{
   background-color: #f6f6f6;
   padding: 20px;

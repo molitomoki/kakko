@@ -10,6 +10,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @review = @post.reviews.find(params[:id])
+    if current_user.id == @review.user.id
+      @review.destroy
+      redirect_to post_path(@review.post)
+    else
+      render 'posts/show'
+    end
+  end
+
   private
 
   def review_params
