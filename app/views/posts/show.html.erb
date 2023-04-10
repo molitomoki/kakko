@@ -28,7 +28,16 @@
           <%= form_with model: [@post, @review],local: true do |f|%>
             <div class="field">
               <%= f.label :total, "総合評価" %><br />
-              <%= f.number_field :total, id:"comment_content" ,placeholder: "1~5"%>
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
             </div>
             <div class="field">
               <%= f.label :concept, "世界観" %><br />
@@ -55,13 +64,14 @@
             </div>
           <% end %>
         <% end %>
+
+        
         <ul class="comments_lists">
-          
           <h4>＜評価一覧＞</h4>
           <% @reviews.each do |review| %>
-            <li class="comments_list">
-            <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>：</strong>
-               <%= "総合評価 : #{review.total}" %><br />
+            <ul class="comments_list">
+            <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>
+               <%= "総合評価 : #{review.total}点" %></strong><br />
                <%= "世界観 : #{review.concept}" %>
                <%= "見栄え : #{review.quality}" %>
                <%= "わかりやすさ : #{review.usability}" %>
@@ -70,10 +80,9 @@
                <% unless review.text == "" %>
                 <%= "コメント : #{review.text}" %>
                <% end %>
-
-            </li>
+            </ul>
           <% end %>
-          
+        
         </ul>
       </div>
     </div>
