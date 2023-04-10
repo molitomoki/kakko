@@ -6,12 +6,14 @@ class ReviewsController < ApplicationController
     else
       @post = @review.post
       @reviews = @post.reviews
-      render "posts/show"
+      render 'posts/show'
     end
   end
 
   private
+
   def review_params
-    params.require(:review).permit(:total, :concept, :quality, :usability, :utility, :text).merge(user_id: current_user.id, post_id: params[:post_id])
+    params.require(:review).permit(:total, :concept, :quality, :usability, :utility, :text).merge(user_id: current_user.id,
+                                                                                                  post_id: params[:post_id])
   end
 end
