@@ -41,19 +41,55 @@
             </div>
             <div class="field">
               <%= f.label :concept, "世界観" %><br />
-              <%= f.number_field :concept, id:"comment_content" %>
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
             </div>
             <div class="field">
               <%= f.label :quality, "見栄え" %><br />
-              <%= f.number_field :quality, id:"comment_content" %>
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
             </div>
             <div class="field">
               <%= f.label :usability, "わかりやすさ" %><br />
-              <%= f.number_field :usability, id:"comment_content" %>
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
             </div>
             <div class="field">
               <%= f.label :utility, "実用的" %><br />
-              <%= f.number_field :utility, id:"comment_content" %>
+              <%= f.radio_button :total, '5', id:"comment_content" %>
+              <%= f.label :total, "5点" %>
+              <%= f.radio_button :total, '4', id:"comment_content" %>
+              <%= f.label :total, "4点" %>
+              <%= f.radio_button :total, '3', id:"comment_content" %>
+              <%= f.label :total, "3点" %>
+              <%= f.radio_button :total, '2', id:"comment_content" %>
+              <%= f.label :total, "2点" %>
+              <%= f.radio_button :total, '1', id:"comment_content" %>
+              <%= f.label :total, "1点" %>
             </div>
             <div class="field">
               <%= f.label :text, "コメント" %><br />
@@ -72,10 +108,10 @@
             <ul class="comments_list">
             <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>
                <%= "総合評価 : #{review.total}点" %></strong><br />
-               <%= "世界観 : #{review.concept}" %>
-               <%= "見栄え : #{review.quality}" %>
-               <%= "わかりやすさ : #{review.usability}" %>
-               <%= "実用的 : #{review.utility}" %><br />
+               <%= "世界観 : #{review.concept}点" %>
+               <%= "見栄え : #{review.quality}点" %>
+               <%= "わかりやすさ : #{review.usability}点" %>
+               <%= "実用的 : #{review.utility}点" %><br />
 
                <% unless review.text == "" %>
                 <%= "コメント : #{review.text}" %>
