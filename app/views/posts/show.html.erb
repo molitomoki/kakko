@@ -25,6 +25,7 @@
       </div>
       <div class="prototype__comments">
         <% if user_signed_in? %>
+        <%= render 'layouts/error_messages', model: @review %>
           <%= form_with model: [@post, @review],local: true do |f|%>
             <div class="field">
               <%= f.label :total, "総合評価" %><br />
@@ -92,7 +93,7 @@
               <%= f.label :utility, "1点" %>
             </div>
             <div class="field">
-              <%= f.label :text, "コメント" %><br />
+              <%= f.label :text, "コメント（任意）" %><br />
               <%= f.text_area :text, id:"comment_content" %>
             </div>
             <div class="actions">

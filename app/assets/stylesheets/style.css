@@ -349,3 +349,6 @@ a {
   font-size: 12px;
   color: #ff7676;
 }
+.field_with_errors {
+  display: contents;
+}
