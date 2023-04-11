@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @post.title%>
       </p>
-      <%= link_to "by #{@post.user.name}", root_path, class: :prototype__user %>
+      <%= link_to "by #{@post.user.name}", user_path(@post.user.id), class: :prototype__user %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_post_path(@post.id), class: :prototype__btn %>
@@ -107,7 +107,7 @@
           <h4>＜評価一覧＞</h4>
           <% @reviews.each do |review| %>
             <ul class="comments_list">
-            <strong><%= link_to "（ #{review.user.name} ）", root_path, class: :comment_user %>
+            <strong><%= link_to "（ #{review.user.name} ）", user_path(review.user.id), class: :comment_user %>
                <%= "総合評価 : #{review.total}点" %></strong><br />
                <%= "世界観 : #{review.concept}点" %>
                <%= "見栄え : #{review.quality}点" %>
