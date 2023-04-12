@@ -7,6 +7,13 @@
       <div class="user__card">
         <%= render partial: "posts/post", collection: @posts %>
       </div>
+
+      <h2 class="page-heading">
+        <%= "#{@user.name}さんのお気に入りしたサイト"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "posts/post", collection: @favorite_posts %>
+      </div>
     </div>
   </div>
 </div>

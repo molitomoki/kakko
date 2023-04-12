@@ -8,8 +8,10 @@
     <%= link_to "by #{post.user.name}", root_path, class: :card__user %>
   </div>
 
+  <% if current_user != post.user %>
   <div id="like-btn<%= post.id %>">
     <%= render partial: "favorites/favorite", locals: { post: post } %>
   </div>
+  <% end %>
   
 </div>
