@@ -102,33 +102,31 @@
           <% end %>
         <% end %>
 
-        
-        <ul class="comments_lists">
-          <h4>＜評価一覧＞</h4>
-          <% @reviews.each do |review| %>
-            <ul class="comments_list">
-            <strong><%= link_to "（ #{review.user.name} ）", user_path(review.user.id), class: :comment_user %>
-               <%= "総合評価 : #{review.total}点" %></strong><br />
-               <%= "世界観 : #{review.concept}点" %>
-               <%= "見栄え : #{review.quality}点" %>
-               <%= "わかりやすさ : #{review.usability}点" %>
-               <%= "実用的 : #{review.utility}点" %><br />
+        <% if @reviews.present? %>
+          <ul class="comments_lists">
+            <h4>＜評価一覧＞</h4>
+            <% @reviews.each do |review| %>
+              <ul class="comments_list">
+                  <strong><%= link_to "（ #{review.user.name} ）", user_path(review.user.id), class: :comment_user %>
+                <%= "総合評価 : #{review.total}点" %></strong><br />
+                <%= "世界観 : #{review.concept}点" %>
+                <%= "見栄え : #{review.quality}点" %>
+                <%= "わかりやすさ : #{review.usability}点" %>
+                <%= "実用的 : #{review.utility}点" %><br />
 
-               <% unless review.text == "" %>
-                <%= "コメント : #{review.text}" %>
-               <% end %>
+                <% unless review.text == "" %>
+                  <%= "コメント : #{review.text}" %>
+                <% end %>
 
-               <% if user_signed_in? && current_user.id == review.user_id %>
-                <div class="review__manage">
-                  <%= link_to "レビューを削除する", post_review_path(@post, review), method: :delete, class: :review__btn %>
-                </div>
-               <% end %>
-               
-               
-            </ul>
-          <% end %>
-        
-        </ul>
+                <% if user_signed_in? && current_user.id == review.user_id %>
+                  <div class="review__manage">
+                    <%= link_to "レビューを削除する", post_review_path(@post, review), method: :delete, class: :review__btn %>
+                  </div>
+                <% end %>
+              </ul>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>
