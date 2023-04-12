@@ -3,7 +3,7 @@
   <div class="card__body">
     <%= link_to post.title, root_path, class: :card__title%>
     <p class="card__summary">
-      <%= post.url %>
+      <%= link_to post.url, post.url%>
     </p>
     <%= link_to "by #{post.user.name}", root_path, class: :card__user %>
   </div>
