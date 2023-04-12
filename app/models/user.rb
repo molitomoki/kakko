@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 6 }
   has_many :posts
   has_many :reviews
+  has_many :favorites
 end

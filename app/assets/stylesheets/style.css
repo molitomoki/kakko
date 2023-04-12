@@ -160,6 +160,11 @@ a {
   text-align: right;
   text-decoration: underline;
 }
+.post_favorites {
+  font-size: 12px;
+  color: #999;
+  text-decoration: underline;
+}
 
 /* 詳細ページ */
 .prototype__wrapper{
