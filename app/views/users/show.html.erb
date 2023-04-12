@@ -1,12 +1,16 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= "#{@user.name}さんの投稿したサイト"%>
-      </h2>
-      <div class="user__card">
-        <%= render partial: "posts/post", collection: @posts %>
-      </div>
+      <% if @posts.present? %>
+        <h2 class="page-heading">
+          <%= "#{@user.name}さんの投稿したサイト"%>
+        </h2>
+        <div class="user__card">
+          <%= render partial: "posts/post", collection: @posts %>
+        </div>
+      <% else %>
+        <h3>サイトがまだ投稿されていません</h3>
+      <% end %>
 
       <% if @favorite_posts.present? %>
         <h2 class="page-heading">
@@ -16,6 +20,8 @@
         <div class="user__card">
           <%= render partial: "posts/post", collection: @favorite_posts %>
         </div>
+      <% else %>
+        <h3>まだお気に入り登録をしていません</h3>
       <% end %>
     </div>
   </div>
