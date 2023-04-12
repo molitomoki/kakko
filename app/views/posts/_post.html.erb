@@ -9,11 +9,7 @@
   </div>
 
   <div id="like-btn<%= post.id %>">
-    <% if user_signed_in? && post.liked_by?(current_user)%>
-      <%=link_to "いいね済", post_favorites_path(post.id),  method: :delete, class: "post_favorites" %>
-    <% else %>
-      <%=link_to "いいねする", post_favorites_path(post.id), method: :post, class: "post_favorites" %>
-    <% end %>
+    <%= render partial: "favorites/favorite", locals: { post: post } %>
   </div>
   
 </div>
