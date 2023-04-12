@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "posts#index"
   resources :posts do
     resources :reviews, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: :show
 end
