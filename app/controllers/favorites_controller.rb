@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_post
+  before_action :move_to_index
 
   def create
     favorite = current_user.favorites.build(post_id: params[:post_id])
@@ -16,4 +17,11 @@ class FavoritesController < ApplicationController
   def set_post
     @post = Post.find(params[:post_id])
   end
+
+  def move_to_index
+    if @post.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
 end
