@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  before_action :set_post only: [:create, :destory]
-  before_action :move_to_index only: [:create, :destory]
+  before_action :set_post 
+  before_action :move_to_index 
 
   def create
     favorite = current_user.favorites.build(post_id: params[:post_id])
