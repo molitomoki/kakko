@@ -49,9 +49,9 @@ HPを作成するときに、顧客から「とにかくかっこいいサイト
 [![Image from Gyazo](https://i.gyazo.com/45e2618b6b826b6be512aea8360f218c.jpg)](https://gyazo.com/45e2618b6b826b6be512aea8360f218c)
 投稿されているサイトは全てのユーザーに表示される
 
-## マイページ
+## マイページ  
 [![Image from Gyazo](https://i.gyazo.com/a7db5d9b897a80084b541bee2bfe00bd.gif)](https://gyazo.com/a7db5d9b897a80084b541bee2bfe00bd)
-マイページでは、自分の投稿とお気に入りしたサイトを表示できる
+マイページでは、自分の投稿とお気に入りしたサイトを表示できる  
 
 ## レビューの投稿
 [![Image from Gyazo](https://i.gyazo.com/be025c50d7ace2b073abd44f8bcb834f.gif)](https://gyazo.com/be025c50d7ace2b073abd44f8bcb834f)
