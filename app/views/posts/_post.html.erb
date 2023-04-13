@@ -5,7 +5,7 @@
     <%= link_to "by #{post.user.name}", user_path(post.user_id), class: :card__user %>
   </div>
 
-  <% if current_user != post.user %>
+  <% if user_signed_in? && current_user != post.user %>
   <div id="like-btn<%= post.id %>">
     <%= render partial: "favorites/favorite", locals: { post: post } %>
   </div>

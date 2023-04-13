@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  before_action :set_post
-  before_action :move_to_index
+  before_action :set_post only: [:create, :destory]
+  before_action :move_to_index only: [:create, :destory]
 
   def create
     favorite = current_user.favorites.build(post_id: params[:post_id])
@@ -14,12 +14,13 @@ class FavoritesController < ApplicationController
     render 'destroy.js.erb'
   end
 
+  private
   def set_post
     @post = Post.find(params[:post_id])
   end
 
   def move_to_index
-    if @post.user_id == current_user.id
+    unless user_signed_in? || @post.user_id != current_user.id
       redirect_to root_path
     end
   end
